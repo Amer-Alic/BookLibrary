@@ -1,0 +1,137 @@
+:root {
+    --button-blue: #0000FF;
+    --button-red: #FF4742;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background-color: #F3F3F3;
+}
+
+.nav-bar {
+    margin-top: 10px;
+    border-bottom: 3px solid #E1E1E1;
+    box-shadow: 0px 10px 5px -10px #111;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 100px 1fr 100px;
+}
+
+.nav-header {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    padding: 10px 0px;
+    justify-self: center;
+    color: #141414;
+}
+
+.books-grid-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 400px)) 100px;
+    grid-auto-rows: 2.5rem;
+    justify-items: center;
+
+}
+
+.tag {
+    font-family: 'Fredoka One', cursive;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.title-name {
+    grid-column-start: 1;
+    font-weight: 400;
+}
+
+.title-name,
+.author-name {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.line {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    height: 2px;
+    border-bottom: 1px solid #E1E1E1;
+    width: 100%
+}
+
+/* BUTTON STYLING */
+button {
+    background: var(--button-blue);
+    border: 1px solid var(--button-blue);
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-weight: 800;
+    line-height: 9px;
+    outline: 0;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    padding: 7px 12px;
+}
+
+button:hover,
+button:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: var(--button-blue);
+}
+
+button:active {
+    opacity: .5;
+}
+
+button.add {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 20px;
+    background: #141414;
+    border: 1px solid #141414;
+    text-align: center;
+}
+
+button.add:hover,
+button.add:active {
+    background-color: initial;
+    color: #141414;
+}
+
+button.delete {
+    background: var(--button-red);
+    border: 1px solid var(--button-red);
+}
+
+button.delete:hover,
+button.delete:active {
+    background-color: initial;
+    color: var(--button-red);
+}
