@@ -23,44 +23,53 @@
 
 <body>
     <nav class="nav-bar">
-        <button class="add">+</button>
+        <button class="add" data-add-button>+</button>
         <h1 class="nav-header">Your Library</h1>
+        <div class="user-buttons">
+            <button class="user-log-in user-button">Log In</button>
+
+        </div>
     </nav>
 
-    <div class="books-grid-wrapper">
-        <section class="books-grid">
-            <span class="tag" id="title-tag">Title</span>
-            <span class="tag" id="author-tag">Author</span>
-            <span class="tag" id="rating-tag">Rating</span>
-
-            <span class="title-name">Cassssssssssssadsatcher</span>
-            <span class="author-name">Selindze</span>
-            <span class="rating-stars">x</span>
-            <div class="buttons">
-                <button><i class="fa-solid fa-maximize"></i></button>
-                <button class="delete"><i class="fa-solid fa-trash"></i></button>
+    <div class="table-box-wrapper">
+        <section class="table-box" data-table>
+            <div class="table-row">
+                <div class="table-cell tag">Title</div>
+                <div class="table-cell tag">Author</div>
+                <div class="table-cell tag">Rating</div>
+                <div class="table-cell"></div>
             </div>
-            <div class="line"></div>
-            <span class="title-name">Catcher</span>
-            <span class="author-name">Selindze</span>
-            <span class="rating-stars">x</span>
-            <div class="buttons">
-                <button><i class="fa-solid fa-maximize"></i></button>
-                <button class="delete"><i class="fa-solid fa-trash"></i></button>
-            </div>
-            <div class="line"></div>
-            <span class="title-name">Catcher</span>
-            <span class="author-name">Selindze</span>
-            <span class="rating-stars">x</span>
-            <div class="buttons">
-                <button><i class="fa-solid fa-maximize"></i></button>
-                <button class="delete"><i class="fa-solid fa-trash"></i></button>
-            </div>
-            <div class="line"></div>
-
-
-        </section>
     </div>
+    </section>
+
+    <div class="book-form-wrapper active" data-form-wrapper>
+        <form action="#" id="book-form" data-form>
+            <h2 id="book-form-header">Book form!</h2>
+            <button role="button" id="book-close" data-close-button>&times;</button>
+
+            <div id="book-info">
+                <input type="text" id="book-name" placeholder="Title of the book:" data-form-name>
+                <input type="text" id="book-author" placeholder="Author:" data-form-author>
+            </div>
+
+            <textarea id="book-summary" placeholder="Your short summary:" data-form-summary></textarea>
+            <textarea id="book-points" placeholder="Main points!" data-form-points></textarea>
+
+
+            <div id="book-rating">
+                <div id="book-rating-stars">
+                    <button role="button" class="star" data-star>&#9734;</button>
+                    <button role="button" class="star" data-star>&#9734;</button>
+                    <button role="button" class="star" data-star>&#9734;</button>
+                    <button role="button" class="star" data-star>&#9734;</button>
+                    <button role="button" class="star" data-star>&#9734;</button>
+                </div>
+            </div>
+            <button id="book-submit">Submit!</button>
+
+        </form>
+    </div>
+    <div class="active" id="book-form-overlay" data-form-overlay></div>
 
 
 

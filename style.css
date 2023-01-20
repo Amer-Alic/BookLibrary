@@ -1,6 +1,7 @@
 :root {
     --button-blue: #0000FF;
     --button-red: #FF4742;
+    --main: #F3F3F3;
 }
 
 * {
@@ -21,7 +22,7 @@ body {
     box-shadow: 0px 10px 5px -10px #111;
     display: grid;
     align-items: center;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 100px 1fr 200px;
 }
 
 .nav-header {
@@ -32,19 +33,30 @@ body {
     color: #141414;
 }
 
-.books-grid-wrapper {
+.user-buttons {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 10px;
 }
 
-.books-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(100px, 400px)) 100px;
-    grid-auto-rows: 2.5rem;
-    justify-items: center;
+.table-box {
+    margin-top: 50px;
 
+}
+
+.table-row {
+    display: table;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.table-cell {
+    display: table-cell;
+    width: 25%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 4px 0;
 }
 
 .tag {
@@ -54,24 +66,19 @@ body {
 }
 
 .title-name {
-    grid-column-start: 1;
     font-weight: 400;
 }
 
-.title-name,
-.author-name {
-    max-width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
-.line {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    height: 2px;
-    border-bottom: 1px solid #E1E1E1;
-    width: 100%
+.star {
+    color: #ff9800;
+    border: none;
+    background-color: var(--main);
+    box-shadow: none;
+    line-height: 0px;
+    font-size: 1.5rem;
+    padding: 0px;
+    font-weight: 400;
 }
 
 /* BUTTON STYLING */
@@ -96,10 +103,11 @@ button {
     touch-action: manipulation;
     vertical-align: middle;
     padding: 7px 12px;
+    transition: 200ms ease;
 }
 
-button:hover,
-button:active {
+button:not(.star):not(.rating-status):not(.user-button):hover,
+button:not(.star):not(.rating-status):not(.user-button):active {
     background-color: initial;
     background-position: 0 0;
     color: var(--button-blue);
@@ -116,7 +124,6 @@ button.add {
     margin-left: 20px;
     background: #141414;
     border: 1px solid #141414;
-    text-align: center;
 }
 
 button.add:hover,
@@ -125,13 +132,245 @@ button.add:active {
     color: #141414;
 }
 
-button.delete {
+button#delete {
     background: var(--button-red);
     border: 1px solid var(--button-red);
 }
 
-button.delete:hover,
-button.delete:active {
+button#delete:hover,
+button#delete:active {
     background-color: initial;
     color: var(--button-red);
+}
+
+button[data-rating-button] {
+    border: none;
+}
+
+button.user-button {
+    padding: 10px 12px;
+}
+
+button.user-log-in {
+    background-color: #DCDCDC;
+    color: black;
+    border: none;
+    transition: 200ms ease;
+    margin-right: 5px;
+}
+
+button.user-log-in:hover,
+button.user-log-in:active {
+    background-color: #c6c6c6;
+}
+
+/* SUBMIT FORM STYLES */
+.book-form-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 500px;
+    height: 90vh;
+    max-width: 80%;
+    background-color: #222222;
+    border-radius: 1em;
+    z-index: 2;
+    transition: all 300ms ease-in-out;
+}
+
+
+.book-form-wrapper.active {
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 300ms ease-in-out;
+}
+
+#book-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 30px;
+    gap: 1em;
+}
+
+#book-form-header {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    border-bottom: 2px solid #494949;
+}
+
+#book-close {
+    position: absolute;
+    right: 4%;
+    top: 6%;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    font-weight: 400;
+    box-shadow: none;
+}
+
+#book-close:hover,
+#book-close:active {
+    color: #FFFFFF;
+}
+
+#book-form input {
+    display: block;
+}
+
+#book-name {
+    margin-bottom: 10px;
+}
+
+#book-info {
+    margin-bottom: 20px;
+}
+
+#book-form input,
+#book-form textarea {
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #494949;
+    color: white;
+    word-break: break-all;
+}
+
+#book-form textarea {
+    width: 100%;
+    height: 10em;
+    border: 1px solid #494949;
+    resize: none;
+}
+
+#book-form textarea::placeholder {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#book-rating {
+    padding: 10px 90px;
+    text-align: center;
+    border: 1px solid #494949;
+    background: rgba(44, 44, 44, 0.5);
+    margin: 0px auto;
+}
+
+#book-submit {
+    background: rgb(44, 44, 44);
+    border: none;
+    padding: 20px 60px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-family: 'Pacifico', cursive;
+    transition: 400ms ease;
+    margin: 0px auto;
+}
+
+#book-submit:hover,
+#book-submit:active {
+    color: white;
+    background: rgb(63, 63, 63);
+}
+
+#book-form-overlay {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    transition: all 300ms ease-in-out;
+}
+
+#book-form-overlay.active {
+    display: block;
+    transition: all 300ms ease-in-out;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+    .nav-bar {
+        grid-template-columns: 70px 1fr 75px;
+    }
+
+    .nav-header {
+        font-size: 2rem;
+    }
+
+    button.user-button {
+        padding: 7px 9px;
+    }
+
+    button.add {
+        width: 2.1rem;
+        height: 2.1rem;
+    }
+
+    .tag {
+        font-size: 1.2rem;
+    }
+
+    .title-name,
+    .author-name,
+    button {
+        font-size: 0.7rem;
+    }
+
+    button {
+        padding: 5px 10px;
+    }
+
+    .star {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 490px) {
+    .nav-header {
+        font-size: 1.2rem;
+    }
+
+    button.user-button {
+        padding: 3px 5px;
+        font-size: 0.5rem;
+    }
+
+    button.add {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .tag {
+        font-size: 0.7rem;
+    }
+
+    .title-name,
+    .author-name,
+    button {
+        font-size: 0.5rem;
+        font-weight: 700;
+    }
+
+    button {
+        padding: 2px 6px;
+    }
+
+    .star {
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 410px) {
+    .nav-header {
+        font-size: 0.8rem;
+    }
+
 }
