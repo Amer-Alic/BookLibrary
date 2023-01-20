@@ -79,11 +79,6 @@ function addBook(bookName, authorName, rating) {
     table.innerHTML += newBook
 }
 
-function a() {
-    expandBook();
-    deleteBook();
-}
-
 stars.forEach((star, i) => {
     star.addEventListener("click", (e) => {
         e.preventDefault()

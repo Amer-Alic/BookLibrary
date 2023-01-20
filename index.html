@@ -42,14 +42,14 @@
     </div>
     </section>
 
-    <div class="book-form-wrapper active" data-form-wrapper>
+    <div class="book-form-wrapper" data-form-wrapper>
         <form action="#" id="book-form" data-form>
             <h2 id="book-form-header">Book form!</h2>
             <button role="button" id="book-close" data-close-button>&times;</button>
 
             <div id="book-info">
-                <input type="text" id="book-name" placeholder="Title of the book:" data-form-name>
-                <input type="text" id="book-author" placeholder="Author:" data-form-author>
+                <input type="text" id="book-name" placeholder="Title of the book:" data-form-name required>
+                <input type="text" id="book-author" placeholder="Author:" data-form-author required>
             </div>
 
             <textarea id="book-summary" placeholder="Your short summary:" data-form-summary></textarea>
@@ -69,7 +69,7 @@
 
         </form>
     </div>
-    <div class="active" id="book-form-overlay" data-form-overlay></div>
+    <div id="book-form-overlay" data-form-overlay></div>
 
 
 
