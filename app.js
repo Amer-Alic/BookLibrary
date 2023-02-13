@@ -13,13 +13,15 @@ let expandButtons = document.querySelectorAll("[data-expand]");
 let deleteButtons = document.querySelectorAll("[data-delete]");
 const allBooks = [];
 
-const Book = function (bookName, authorName, summary, points, rating) {
-  this.bookName = bookName;
-  this.authorName = authorName;
-  this.summary = summary;
-  this.points = points;
-  this.rating = rating;
-};
+class Book {
+  constructor(bookName, authorName, summary, points, rating) {
+    this.bookName = bookName;
+    this.authorName = authorName;
+    this.summary = summary;
+    this.points = points;
+    this.rating = rating;
+  }
+}
 
 function classToggle(bookFormName, bookFormAuthor, bookFormSummary, bookFormPoints, stars = null) {
   bookFormOverlay.classList.toggle("active");
