@@ -5,4 +5,4 @@
 - How to make tables with CSS and display: table;
 - Improved HTML and CSS writing and also transitions;
 - **Felt a lot more confident about writing the code and found myself finding solutions faster then before!**
-- HERE IS [LIVE PREVIEW](https://amer-tech.github.io/BookLibrary/)
+- HERE IS [LIVE PREVIEW](https://amer-alic.github.io/BookLibrary/)
